@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ report_title }}</title>
+    <style type="text/css" id="open-sans-font">
+        @font-face{
+            font-family: "open-sans"
+            src: url("OpenSans-VariableFont_wdth,wght.ttf") format("truetype");
+        }
+        .open-sans {
+            font-family: "open-sans", Verdana, Tahoma;
+        }
+    </style>
+    <style>
+        p, th, td, h3{
+            font-size: 12px;
+        }
+        h1, h2{
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+        h1{
+            font-size: 20px;
+        }
+        h2{
+            font-size: 16px;
+        }
+        header *{
+            margin-top: 0px;
+            margin-bottom: 0px;
+            margin: 10px;
+        }
+        .factsheet-divider{
+            border-top: 2px solid #25455c;
+            border-bottom: 2px solid #25455c;
+        }
+        #portfolio_summary_table th{
+            text-align: left;
+            padding-bottom: 5px;
+            padding-right: 15px;
+        }
+        #portfolio_summary_table td{
+            max-width: 120px;
+        }
+        #portfolio_summary_table thead th{
+            text-align: center;
+            text-decoration: underline;
+        }
+        #portfolio_summary_text{
+            background-color: #3d7399;
+            color: white;
+            border: 2px solid #25455c;
+            border-radius: 3px;
+            padding: 5px;
+        }
+        #portfolio_summary_text h3{
+            margin-top: 5px;
+            margin-bottom: 5px;
+            text-decoration: underline;
+        }
+        #assets_table {
+            border-collapse: collapse;
+        }
+        #assets_table td{
+            padding-left: 3px;
+            text-align: center;
+            padding-right: 3px;
+            padding-bottom: 3px;
+            border-bottom: 1px dashed black;
+        }
+        #assets_table th{
+            padding-left: 3px;
+            padding-right: 3px;
+            padding-bottom: 3px;
+            border-bottom: 1px solid black;
+        }
+    </style>
+</head>
+<body class="open-sans">
+<header style="display: flex; justify-content: space-around; align-items: flex-start;">
+    <h1>{{ fund_name }}</h1>
+    <h2 style="text-align: right;"><b>Performance At: {{ report_date }}</b></h2>
+</header>
+<div>
+    <div style="display: flex; justify-content: space-around;">
+        <div style="max-width: 280px;">
+            <div id="portfolio_summary_text">
+                <h3>FUND AIMS AND OBJECTIVES</h3>
+                <p>{{ fund_name }} (the “Fund”) was launched on {{ start_date }} with the objective of
+                    attaining long-term capital growth by investment in a diversified portfolio of equity and fund
+                    instruments, principally in the {{ sector }} sector/s, situated in, registered, headquartered or
+                    managed from the United States.</p>
+                <p>The Fund maintains {{ investment_count }} holdings as of {{ report_date }}.</p>
+            </div>
+            <table id="portfolio_summary_table">
+                <thead>
+                    <tr>
+                        <th colspan="2">Summary</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th>Start Date:</th>
+                        <td>{{ start_date }}</td>
+                    </tr>
+                    <tr>
+                        <th>At Date:</th>
+                        <td>{{ report_date }}</td>
+                    </tr>
+                    <tr>
+                        <th>Asset Value at Cost:</th>
+                        <td>${{ total_cost }}</td>
+                    </tr>
+                    <tr>
+                        <th>Total Asset Value:</th>
+                        <td>${{ total_market_value }}</td>
+                    </tr>
+                    <tr>
+                        <th>Total Return:</th>
+                        <td>${{ total_return }}</td>
+                    </tr>
+                    <tr>
+                        <th>Total Return:</th>
+                        <td>{{ total_return_percentage }}%</td>
+                    </tr>
+                    <tr>
+                        <th>Annualised Return:</th>
+                        <td>{{ annualised_return }}%</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div style="max-width: 50%;">
+            <div class="factsheet-divider">
+                <h2>Asset Weightings</h2>
+            </div>
+            <img style="width: 100%; padding: 10px;" src="{{ base_dir }}\Report Resources\asset_values.png">
+            <div class="factsheet-divider">
+                <h2>Performance Chart</h2>
+            </div>
+            <img style="width: 100%; padding: 10px;" src="{{ base_dir }}\Report Resources\performance_graph.png">
+        </div>
+    </div>
+    <div style="display:flex; justify-content: center;">
+        <table id="assets_table">
+            <thead>
+                <tr>
+                    <th colspan="100%">Assets held by the Fund</th>
+                </tr>
+                <tr>
+                    <th>Name</th>
+                    <th>Symbol</th>
+                    <th>Shares</th>
+                    <th>Cost</th>
+                    <th>Gross Value</th>
+                    <th>Unrealised Gain / (Loss)</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{ investment_rows }}
+            </tbody>
+        </table>
+    </div>
+</div>
+</body>
+</html>
