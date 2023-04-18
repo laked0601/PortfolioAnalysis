@@ -3,8 +3,8 @@ An Investment Fund reporting tool and generator built from scratch using SQLite 
 <h2>📌 Context</h2>
 <ul>
   <li>An Investment Fund is a financial instrument that holds ownership in a diverse selection of assets intended to meet the desired investment strategy of it's investors. Investment funds play a critical role in diversifying investment portfolios to achieve desired financial outcomes. </li>
-  <li>This research project explores how investment portfolios can be effectively constructed, and their historic performance can be measured and reported to investors.</li>
-  <li>The project includes an SQLite based built around a Python Application, which is specifically designed to collect historic performance data for approximately 1400 stocks of varying size, market sector and industry in the United States.</li>
+  <li>This research project aims to explore how investment portfolios can be effectively constructed, and their historic performance can be measured and reported to investors.</li>
+  <li>It includes an SQLite based built around a Python Application, which is specifically designed to collect historic performance data for approximately 1400 stocks of varying size, market sector and industry in the United States. This data is then analysed, according to a desired investment strategy, to calculate fund returns to investors over time.</li>
 </ul>
 <h2>⚙️ How it Works</h2>
 <ul>
