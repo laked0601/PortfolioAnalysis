@@ -524,12 +524,11 @@ class SQLiteInvestment:
             return return_price
 
 
-# Please populate with an API key from
-# https://www.alphavantage.co/support/#api-key
-API_KEY = "{{ YOUR API KEY }}"
-
-
 if __name__ == "__main__":
+    # Please populate with an API key from
+    # https://www.alphavantage.co/support/#api-key
+    API_KEY = "{{ YOUR API KEY }}"
+
     # Collects Investment Overview and Price from the alphavantage API and  stores it in the SQLite database
     # get_investments_and_prices()
 
