@@ -312,12 +312,12 @@ class Portfolio:
         for asset in self.assets:
             asset.unrealised_gain = asset.market_value - asset.amount_at_cost
             self.total_unrealised_gain += asset.unrealised_gain
-            self.total_market_value += asset.market_value
         return self.total_unrealised_gain / 100
 
     def make_assets_chart(self):
+        asset_market_value = sum([asset.market_value for asset in self.assets])
         for asset in self.assets:
-            asset.percentage_of_portfolio = asset.market_value / self.total_market_value
+            asset.percentage_of_portfolio = asset.market_value / asset_market_value
         fig, ax = plt.subplots()
         market_values = []
         labels = []
@@ -533,7 +533,7 @@ if __name__ == "__main__":
     # get_investments_and_prices()
 
     # Create a new portfolio. As an example, we'll look at a random selection of 15 Small Cap Finance stocks
-    portf = Portfolio(sectors=["FINANCE"], cap_size="Small-cap", max_investments=15)
+    portf = Portfolio(sectors=["TECHNOLOGY"], cap_size="Small-cap", max_investments=15)
 
     # More examples of investment portfolios
     # portf = Portfolio(sectors=["LIFE SCIENCES"], cap_size="Micro-cap", max_investments=15)
