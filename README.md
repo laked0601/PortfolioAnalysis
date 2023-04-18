@@ -54,4 +54,4 @@ if __name__ == "__main__":
  portf.calculate_results(at_date=datetime(2023, 3, 31))
 ```
 
-<p>This is now ready to run and can produce the an example report for the performance of a Fund of your desired strategy under "/Report Resources/". For spreadsheet analysis, a file called "portfolio_results.csv" will be created which can be modified as needed.</p>
+<p>This is now ready to run and can produce an example report for the performance of a Fund of your desired strategy under "/Report Resources/". For spreadsheet analysis, a file called "portfolio_results.csv" will be created which can be modified as needed.</p>
