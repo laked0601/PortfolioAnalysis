@@ -12,7 +12,17 @@ import requests
 import report_generator
 import random
 import matplotlib.pyplot as plt
-from sql_interaction import sql_cnxn
+
+
+@contextmanager
+def sql_cnxn():
+    if not os.path.exists("investment_data"):
+        os.mkdir("investment_data")
+    if not os.path.exists("investment_data/PortfolioAnalysis.db"):
+        open("investment_data/PortfolioAnalysis.db", 'wb').close()
+    cnxn = sqlite3.connect("investment_data/PortfolioAnalysis.db")
+    yield cnxn
+    cnxn.close()
 
 
 def html_to_pdf(html_file_path, output_pdf_path):
